@@ -1,0 +1,28 @@
+			Installation and getting started
+
+1. Unzip WildFly .zip archive (D:/progs/)
+2. Add JBOSS_HOME environment variable (d:\Progs\wildfly-8.1.0.Final)
+3. Run the server ($JBOSS_HOME/bin/standalone.bat)
+4. Add a management user.
+	$JBOSS_HOME/bin/add-user.bat
+	choose a) management user
+	username: king
+	password: road
+	do not include the user to any group
+	confirm creating a new user
+https://docs.jboss.org/author/display/WFLY8/Getting+Started+Guide
+
+
+
+
+
+
+			Add datasource
+		<datasource jndi-name="java:jboss/datasources/HitchhikingDS" pool-name="HitchhikingDS" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:h2:tcp://localhost/~/test</connection-url>
+                    <driver>h2</driver>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </datasource>

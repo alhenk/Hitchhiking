@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Hello Kings of the Raod</title>
+</h:head>
+
+<h:body>
+    <h:outputStylesheet library="css" name="bootstrap/bootstrap.css"/>
+
+    <div class="col-md-6 col-sm-6">
+        <div class="well bs-component">
+            <h3>Registration</h3>
+
+            <h:form styleClass="form-horizontal">
+
+                <div class="form-group">
+                    <h:outputLabel styleClass="control-label col-md-2" value="First name"
+                                   for="firstName"></h:outputLabel>
+
+                    <div class="col-md-10">
+                        <h:inputText styleClass="form-control" id="firstName"
+                                     value="#{driver.firstName}"></h:inputText>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel styleClass="control-label col-md-2" for="lastName"
+                                   value="Last name: "/>
+
+                    <div class="col-md-10">
+                        <h:inputText styleClass="form-control" id="lastName"
+                                     value="#{driver.lastName}"></h:inputText>
+                    </div>
+                </div>
+                <h:commandButton value="Register" actionListener="#{driver.registerTheDriver}">
+                    <f:ajax execute="firstName lastName" render="output"/>
+                </h:commandButton>
+
+                <h2><h:outputText id="output" value="#{driver.outputText}"/></h2>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>
